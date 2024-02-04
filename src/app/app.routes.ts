@@ -5,8 +5,9 @@ import { AcoesDataComponent } from "./components/acoes-data/acoes-data.component
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'acao-dia', component: AcaoDiaComponent },
   { path: 'acoes-data', component: AcoesDataComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
