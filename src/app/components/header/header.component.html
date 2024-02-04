@@ -4,9 +4,20 @@
       <span class="ml-3 text-xl">ZG Bolsa</span>
     </a>
     <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-      <a routerLink="/" class="mr-5 hover:text-white">Home</a>
-      <a routerLink="/acao-dia" class="mr-5 hover:text-white">Ação Dia</a>
-      <a routerLink="/acoes-data" class="mr-5 hover:text-white">Ações Data</a>
+      <a routerLink="/" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         ariaCurrentWhenActive="page"
+         class="mr-5 hover:text-white">Home</a>
+      <a routerLink="/acao-dia"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         ariaCurrentWhenActive="page"
+         class="mr-5 hover:text-white">Ação Dia</a>
+      <a routerLink="/acoes-data"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         ariaCurrentWhenActive="page"
+         class="mr-5 hover:text-white">Ações Data</a>
       <a routerLink="#" class="mr-5 hover:text-white">Fourth Link</a>
     </nav>
   </div>
