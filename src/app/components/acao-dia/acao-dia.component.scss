@@ -13,3 +13,8 @@
   border: 1px solid red;
   width: 100%;
 }
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
