@@ -56,7 +56,7 @@ export class GraficoSimplesComponent implements OnInit {
 
     this.acaoService.obterAcaoByDia(this.data.acao, this.data.data).then((value: any) => {
       if (!value.success) {
-        this.notFound = `Não foi encontrado nenhum registro para ${this.data.acao} na data de ${this.data.data}.`
+        this.notFound = this.acaoService.messages.notFoundInDateAndCode.replace('{0}', this.data.acao).replace('{1}', this.data.data);
         const d = document.getElementById('dados');
         this.renderer.setStyle(d, 'display', 'none');
         return

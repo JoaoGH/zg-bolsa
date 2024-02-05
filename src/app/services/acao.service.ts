@@ -11,6 +11,9 @@ const moment = _rollupMoment || _moment;
 export class AcaoService {
 
   private apiUrl: string = 'http://localhost:8080/bolsa-api';
+  public messages = {
+    notFoundInDate: 'Não foi encontrado nenhum registro na data de {0}.',
+  }
 
   async obterAcoes(): Promise<Acao[]> {
     const data = await fetch(`${this.apiUrl}/v1/carteira/listAllSimbols`);
