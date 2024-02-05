@@ -84,8 +84,13 @@ export class GraficoSimplesComponent implements OnInit {
         title: {
           text: `${this.data.acao} em ${this.data.data}`
         },
+        axisY: {
+          includeZero: true,
+          prefix: "R$ "
+        },
         data: [{
           type: "column",
+          yValueFormatString: "R$ #,###.##",
           dataPoints: this.dataPoints
         }]
       };
