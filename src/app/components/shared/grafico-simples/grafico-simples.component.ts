@@ -51,34 +51,27 @@ export class GraficoSimplesComponent implements OnInit {
         this.notFound = `Não foi encontrado nenhum registro para ${this.data.acao} na data de ${this.data.data}.`
         return
       } else {
-        let temCompra = false;
-        let temVenda = false;
-        for (let it of value.data.acoes) {
-          if (it.operacao === 'C') {
-            temCompra = true;
-          }
-          if (it.operacao === 'V') {
-            temVenda = true;
-          }
-          let obj = {
-            label: it.operacao === 'C' ? 'Compra' : 'Venda',
-            y: it.preco
-          }
-          this.dataPoints.push(obj);
+        let isLong = false;
+        const userTrade = value.data.acoes[0];
+        const mercadoTrade = value.data.mercado[0];
+
+        if (userTrade.operacao === 'C') {
+          isLong = true;
         }
 
-        if (!temCompra) {
-          this.dataPoints.push({
-            label: 'Compra',
-            y: 0
-          })
+        const operacao = {
+          label: isLong ? 'Compra' : 'Venda',
+          y: userTrade.preco
         }
-        if (!temVenda) {
-          this.dataPoints.push({
-            label: 'Venda',
-            y: 0
-          })
+
+        this.dataPoints.push(operacao);
+
+        const mercado = {
+          label: 'Preço de Mercado',
+          y: mercadoTrade.preco
         }
+
+        this.dataPoints.push(mercado);
       }
 
       this.chartOptions = {
