@@ -12,11 +12,8 @@ import { RouterOutlet } from '@angular/router';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import {AcaoService} from "../../../services/acao.service";
 import {Renderer2} from "@angular/core";
+import {Dados} from "../../../models/Dados";
 
-export interface Dados {
-  acao: string,
-  data: string
-}
 
 @Component({
   selector: 'app-grafico-simples',
