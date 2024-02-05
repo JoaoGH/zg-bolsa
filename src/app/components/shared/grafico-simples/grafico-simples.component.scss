@@ -1,9 +1,14 @@
 .md-dialog-container {
   width: 500px;
-  height: 500px;
+  height: 600px;
   margin: 10px;
 }
 
-.aviso {
+#aviso {
+  height: 90%;
+}
+
+.textoAviso {
+  padding-top: 50%;
   text-align: center;
 }
