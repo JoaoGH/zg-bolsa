@@ -1,7 +1,8 @@
-<h2 mat-dialog-title>knjowefnjkwef</h2>
-<mat-dialog-content>
-  <p>Grafico aqui</p>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
-</mat-dialog-actions>
+<div class="md-dialog-container">
+  <div>
+    <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+  </div>
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </mat-dialog-actions>
+</div>
