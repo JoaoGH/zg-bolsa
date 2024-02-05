@@ -69,6 +69,9 @@ export class AcaoDiaComponent implements OnInit {
   ngOnInit(): void {
     this.acaoService.obterAcoes().then((data: Acao[]) => {
       this.acoes = data;
+      if (data) {
+        this.selectedAcao = data[0].simbol
+      }
     });
   }
 
