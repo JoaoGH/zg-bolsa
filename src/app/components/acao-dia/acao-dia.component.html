@@ -1,7 +1,7 @@
 <div class="main-container">
   <mat-form-field>
     <mat-label>Selecione a ação</mat-label>
-    <mat-select [ngModel]="selectedAcao" name="acao">
+    <mat-select [(ngModel)]="selectedAcao" name="acao">
       @for (acao of acoes; track acao) {
         <mat-option [value]="acao.simbol">{{acao.simbol}}</mat-option>
       }
