@@ -60,38 +60,38 @@ export class GraficoSimplesComponent implements OnInit {
         const d = document.getElementById('dados');
         this.renderer.setStyle(d, 'display', 'none');
         return
-      } else {
-        const d = document.getElementById('aviso');
-        this.renderer.setStyle(d, 'display', 'none');
-        let isLong = false;
-        const userTrade = value.data.acoes[0];
-        const mercadoTrade = value.data.mercado[0];
-
-        if (userTrade.operacao === 'C') {
-          isLong = true;
-        }
-
-        const operacao = {
-          label: isLong ? 'Compra' : 'Venda',
-          y: userTrade.preco
-        }
-
-        this.dataPoints.push(operacao);
-
-        const mercado = {
-          label: 'Preço de Mercado',
-          y: mercadoTrade.preco
-        }
-
-        this.dataPoints.push(mercado);
-
-        this.resumo.precoMercado = parseFloat(mercadoTrade.preco).toFixed(2);
-        this.resumo.precoPago = parseFloat(userTrade.preco).toFixed(2);
-        this.resumo.rendimento = parseFloat(userTrade.rendimento).toFixed(2);
-        this.resumo.quantidade = userTrade.quantidade;
-        this.resumo.acao = mercadoTrade.simbol
-        this.resumo.saldo = parseFloat(userTrade.saldo).toFixed(2);
       }
+
+      const d = document.getElementById('aviso');
+      this.renderer.setStyle(d, 'display', 'none');
+      let isLong = false;
+      const userTrade = value.data.acoes[0];
+      const mercadoTrade = value.data.mercado[0];
+
+      if (userTrade.operacao === 'C') {
+        isLong = true;
+      }
+
+      const operacao = {
+        label: isLong ? 'Compra' : 'Venda',
+        y: userTrade.preco
+      }
+
+      this.dataPoints.push(operacao);
+
+      const mercado = {
+        label: 'Preço de Mercado',
+        y: mercadoTrade.preco
+      }
+
+      this.dataPoints.push(mercado);
+
+      this.resumo.precoMercado = parseFloat(mercadoTrade.preco).toFixed(2);
+      this.resumo.precoPago = parseFloat(userTrade.preco).toFixed(2);
+      this.resumo.rendimento = parseFloat(userTrade.rendimento).toFixed(2);
+      this.resumo.quantidade = userTrade.quantidade;
+      this.resumo.acao = mercadoTrade.simbol
+      this.resumo.saldo = parseFloat(userTrade.saldo).toFixed(2);
 
       this.chartOptions = {
         title: {
