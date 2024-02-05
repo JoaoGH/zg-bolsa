@@ -1,1 +1,17 @@
-<p>acoes-data works!</p>
+<div class="main-container">
+  <br>
+  <mat-form-field>
+    <mat-label>Data</mat-label>
+    <input
+      matInput
+      [matDatepicker]="dp"
+      [formControl]="date"
+    >
+    <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <button
+    mat-raised-button
+    (click)="openDialog()">Buscar</button>
+</div>
