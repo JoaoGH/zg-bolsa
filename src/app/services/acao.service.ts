@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Acao } from "../models/Acao";
+import * as _moment from 'moment';
+import {default as _rollupMoment} from 'moment';
+
+const moment = _rollupMoment || _moment;
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +24,15 @@ export class AcaoService {
     }
 
     return content;
+  }
+
+  async obterAcaoByDia(simbol: string, data: string): Promise<any> {
+    const dados = await fetch(`${this.apiUrl}/v1/carteira?` + new URLSearchParams({
+      data: moment(data, 'DD/MM/YYYY').format('YYYY-MM-DD'),
+      acao: simbol.toUpperCase()
+    }));
+    const value = await dados.json() ?? {};
+
+    return value;
   }
 }
