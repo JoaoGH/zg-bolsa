@@ -87,7 +87,7 @@ export class GraficoSimplesComponent implements OnInit {
         },
         data: [{
           type: "column",
-          yValueFormatString: "R$ #,###.##",
+          yValueFormatString: "R$ #,###.00",
           dataPoints: this.dataPoints
         }]
       };
