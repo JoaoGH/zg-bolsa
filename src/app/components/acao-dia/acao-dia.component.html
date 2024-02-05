@@ -14,9 +14,12 @@
       matInput
       [matDatepicker]="dp"
       [formControl]="date"
-      (dateChange)="addEvent('change', $event)"
     >
     <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
     <mat-datepicker #dp></mat-datepicker>
   </mat-form-field>
+  <br>
+  <button
+    mat-raised-button
+    (click)="openDialog()">Buscar</button>
 </div>
