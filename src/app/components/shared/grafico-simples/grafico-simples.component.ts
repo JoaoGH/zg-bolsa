@@ -45,7 +45,7 @@ export class GraficoSimplesComponent implements OnInit {
   notFound: string = ''
   resumo: Resumo = {
     precoMercado: '',
-    precoPago: '',
+    precoOperacao: '',
     rendimento: '',
     quantidade: 0,
     acao: '',
@@ -87,7 +87,7 @@ export class GraficoSimplesComponent implements OnInit {
       this.dataPoints.push(mercado);
 
       this.resumo.precoMercado = parseFloat(mercadoTrade.preco).toFixed(2);
-      this.resumo.precoPago = parseFloat(userTrade.preco).toFixed(2);
+      this.resumo.precoOperacao = parseFloat(userTrade.preco).toFixed(2);
       this.resumo.rendimento = parseFloat(userTrade.rendimento).toFixed(2);
       this.resumo.quantidade = userTrade.quantidade;
       this.resumo.acao = mercadoTrade.simbol
