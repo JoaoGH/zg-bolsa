@@ -60,12 +60,6 @@ export class AcaoDiaComponent implements OnInit {
 
   constructor(private acaoService: AcaoService) { }
 
-  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    const dataSelecionada = moment(event.value).format('DD/MM/yyyy')
-    console.log(dataSelecionada);
-    this.events.push(`${type}: ${event.value}`);
-  }
-
   ngOnInit(): void {
     this.acaoService.obterAcoes().then((data: Acao[]) => {
       this.acoes = data;
@@ -73,6 +67,12 @@ export class AcaoDiaComponent implements OnInit {
         this.selectedAcao = data[0].simbol
       }
     });
+  }
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    const dataSelecionada = moment(event.value).format('DD/MM/yyyy')
+    console.log(dataSelecionada);
+    this.events.push(`${type}: ${event.value}`);
   }
 
 }
