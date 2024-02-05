@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import {Acao} from "../models/Acao";
+import { Acao } from "../models/Acao";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AcaoService {
 
-  obterAcoes(): Observable<Acao[]> {
-    const acoes: Acao[] = [
-      { simbol: 'MGLU3F' },
-      { simbol: 'ITUB4F' },
-      { simbol: 'BOVA11' },
-      { simbol: 'VVAR3F' },
-      { simbol: 'BPAN4F' },
-    ];
+  private apiUrl: string = 'http://localhost:8080/bolsa-api';
 
-    return of(acoes);
+  async obterAcoes(): Promise<Acao[]> {
+    const data = await fetch(`${this.apiUrl}/v1/carteira/listAllSimbols`);
+    const value = await data.json() ?? {};
+    let content: Acao[] = [];
+
+    if (value) {
+      for (let element of value.data) {
+        content.push({simbol: element})
+      }
+    }
+
+    return content;
   }
 }

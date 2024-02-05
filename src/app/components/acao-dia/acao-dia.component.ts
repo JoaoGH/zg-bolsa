@@ -23,7 +23,7 @@ export class AcaoDiaComponent implements OnInit {
   constructor(private acaoService: AcaoService) { }
 
   ngOnInit(): void {
-    this.acaoService.obterAcoes().subscribe((data: Acao[]) => {
+    this.acaoService.obterAcoes().then((data: Acao[]) => {
       this.acoes = data;
     });
   }
