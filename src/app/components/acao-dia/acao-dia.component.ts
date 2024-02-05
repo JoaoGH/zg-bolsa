@@ -12,7 +12,15 @@ import {AcaoService} from "../../services/acao.service";
 @Component({
   selector: 'app-acao-dia',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, MatIcon, MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule],
+  imports: [
+    MatTableModule,
+    MatButtonModule,
+    MatIcon,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+  ],
   templateUrl: './acao-dia.component.html',
   styleUrl: './acao-dia.component.scss'
 })
