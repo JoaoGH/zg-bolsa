@@ -5,8 +5,6 @@
   <div id="dados">
     <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
     <br>
-    <br>
-    <br>
     <table style="width: 100%">
       <tr>
         <th></th>
@@ -15,6 +13,10 @@
       <tr>
         <td>Preço de mercado</td>
         <td>R$ {{ resumo.precoMercado }}</td>
+      </tr>
+      <tr>
+        <td>Preço pago</td>
+        <td>R$ {{ resumo.precoPago }}</td>
       </tr>
       <tr>
         <td>Rendimento</td>
