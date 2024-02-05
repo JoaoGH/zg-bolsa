@@ -13,6 +13,7 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import {AcaoService} from "../../../services/acao.service";
 import {Renderer2} from "@angular/core";
 import {Dados} from "../../../models/Dados";
+import {Resumo} from "../../../models/Resumo";
 
 
 @Component({
@@ -42,6 +43,13 @@ export class GraficoSimplesComponent implements OnInit {
   chartOptions: object = {}
   dataPoints: object[] = []
   notFound: string = ''
+  resumo: Resumo = {
+    precoMercado: '',
+    rendimento: '',
+    quantidade: 0,
+    acao: '',
+    saldo: '',
+  };
 
   ngOnInit(): void {
 
@@ -75,6 +83,12 @@ export class GraficoSimplesComponent implements OnInit {
         }
 
         this.dataPoints.push(mercado);
+
+        this.resumo.precoMercado = parseFloat(mercadoTrade.preco).toFixed(2);
+        this.resumo.rendimento = parseFloat(userTrade.rendimento).toFixed(2);
+        this.resumo.quantidade = userTrade.quantidade;
+        this.resumo.acao = mercadoTrade.simbol
+        this.resumo.saldo = parseFloat(userTrade.saldo).toFixed(2);
       }
 
       this.chartOptions = {

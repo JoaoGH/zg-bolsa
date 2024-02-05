@@ -4,6 +4,31 @@
   </div>
   <div id="dados">
     <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+    <br>
+    <br>
+    <br>
+    <table style="width: 100%">
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>Preço de mercado</td>
+        <td>R$ {{ resumo.precoMercado }}</td>
+      </tr>
+      <tr>
+        <td>Rendimento</td>
+        <td>{{ resumo.rendimento }} %</td>
+      </tr>
+      <tr>
+        <td>Quantidade: </td>
+        <td>{{ resumo.quantidade }} ações de {{ resumo.acao }}</td>
+      </tr>
+      <tr>
+        <td>Saldo</td>
+        <td>R$ {{ resumo.saldo }}</td>
+      </tr>
+    </table>
   </div>
   <mat-dialog-actions>
     <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
