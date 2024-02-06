@@ -57,7 +57,9 @@ export class AcoesDataComponent {
   openDialog(): void {
     this.selectedData = moment(this.date.value).format('DD/MM/yyyy');
     this.dialog.open(GraficoPorDiaComponent, {
-      data: { data: this.selectedData },
+      data: {
+        data: this.selectedData
+      },
     });
   }
 }

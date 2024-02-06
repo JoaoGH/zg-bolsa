@@ -72,7 +72,10 @@ export class AcaoDiaComponent implements OnInit {
   openDialog(): void {
     this.selectedData = moment(this.date.value).format('DD/MM/yyyy');
     this.dialog.open(GraficoSimplesComponent, {
-      data: { acao: this.selectedAcao, data: this.selectedData },
+      data: {
+        acao: this.selectedAcao,
+        data: this.selectedData
+      },
     });
   }
 

@@ -1,4 +1,3 @@
-
 export interface Resumo {
   precoMercado: string,
   precoOperacao: string,

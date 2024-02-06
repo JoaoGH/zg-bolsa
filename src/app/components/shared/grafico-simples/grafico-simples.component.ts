@@ -3,7 +3,6 @@ import {
   MAT_DIALOG_DATA,
   MatDialogActions, MatDialogClose,
   MatDialogContent,
-  MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
@@ -14,7 +13,6 @@ import {AcaoService} from "../../../services/acao.service";
 import {Renderer2} from "@angular/core";
 import {Dados} from "../../../models/Dados";
 import {Resumo} from "../../../models/Resumo";
-
 
 @Component({
   selector: 'app-grafico-simples',
@@ -56,7 +54,6 @@ export class GraficoSimplesComponent implements OnInit {
   };
 
   ngOnInit(): void {
-
     this.acaoService.obterAcaoByDia(this.data.acao, this.data.data).then((value: any) => {
       if (!value.success) {
         this.notFound = this.acaoService.messages.notFoundInDateAndCode.replace('{0}', this.data.acao).replace('{1}', this.data.data);
@@ -124,7 +121,6 @@ export class GraficoSimplesComponent implements OnInit {
         }]
       };
     });
-
   }
 
 }
