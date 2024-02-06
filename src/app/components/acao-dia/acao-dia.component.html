@@ -1,0 +1,25 @@
+<div class="main-container">
+  <mat-form-field>
+    <mat-label>Selecione a ação</mat-label>
+    <mat-select [(ngModel)]="selectedAcao" name="acao">
+      @for (acao of acoes; track acao) {
+        <mat-option [value]="acao.simbol">{{acao.simbol}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Data</mat-label>
+    <input
+      matInput
+      [matDatepicker]="dp"
+      [formControl]="date"
+    >
+    <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <button
+    mat-raised-button
+    (click)="openDialog()">Buscar</button>
+</div>
