@@ -49,8 +49,16 @@ export const MY_FORMATS = {
     ReactiveFormsModule,
     MatDateRangeInput,
     MatDateRangePicker,
-    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
-    MatFormFieldModule, MatDatepickerModule, FormsModule, JsonPipe, NgClass
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    FormsModule,
+    JsonPipe,
+    NgClass
   ],
   providers: [
     provideMomentDateAdapter(MY_FORMATS),
