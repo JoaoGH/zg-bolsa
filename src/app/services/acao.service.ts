@@ -13,6 +13,7 @@ export class AcaoService {
   private apiUrl: string = 'http://localhost:8080/bolsa-api';
   public messages = {
     notFoundInDate: 'Não foi encontrado nenhum registro na data de {0}.',
+    notFoundInDateAndCode: 'Não foi encontrado nenhum registro para {0} na data de {1}.',
   }
 
   async obterAcoes(): Promise<Acao[]> {
@@ -38,4 +39,14 @@ export class AcaoService {
 
     return value;
   }
+
+  async obterAcoesPorDia(data: string): Promise<any> {
+    const dados = await fetch(`${this.apiUrl}/v1/carteira/rendimentosPorData?` + new URLSearchParams({
+      data: moment(data, 'DD/MM/YYYY').format('YYYY-MM-DD'),
+    }));
+    const value = await dados.json() ?? {};
+
+    return value
+  }
+
 }
