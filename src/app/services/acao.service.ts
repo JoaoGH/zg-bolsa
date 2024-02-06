@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Acao } from "../models/Acao";
+import {Injectable} from '@angular/core';
+import {Acao} from "../models/Acao";
 import * as _moment from 'moment';
 import {default as _rollupMoment} from 'moment';
+import {UserTrade} from "../models/UserTrade";
 
 const moment = _rollupMoment || _moment;
 
@@ -47,6 +48,15 @@ export class AcaoService {
     const value = await dados.json() ?? {};
 
     return value
+  }
+
+  async obterPeriodo(dataInicial: string, dataFinal: string): Promise<UserTrade[]> {
+    const data = await fetch(`${this.apiUrl}/v1/carteira/listPeriodo?`+ new URLSearchParams({
+      dataInicial: moment(dataInicial, 'DD/MM/YYYY').format('YYYY-MM-DD'),
+      dataFinal: moment(dataFinal, 'DD/MM/YYYY').format('YYYY-MM-DD'),
+    }));
+
+    return await data.json() ?? {};
   }
 
 }
