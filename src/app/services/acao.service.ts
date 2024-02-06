@@ -25,10 +25,10 @@ export class AcaoService {
       }
     });
     const value = await data.json() ?? {};
-    let content: Acao[] = [];
+    const content: Acao[] = [];
 
     if (value) {
-      for (let element of value.data) {
+      for (const element of value.data) {
         content.push({simbol: element})
       }
     }

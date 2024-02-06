@@ -88,8 +88,8 @@ export class AcoesPeriodoComponent {
   ) {}
 
   buscarRegistros(): void {
-    let dataInicial = moment(this.range.value.start).format('DD/MM/yyyy');
-    let dataFinal = moment(this.range.value.end).format('DD/MM/yyyy');
+    const dataInicial = moment(this.range.value.start).format('DD/MM/yyyy');
+    const dataFinal = moment(this.range.value.end).format('DD/MM/yyyy');
     this.acaoService.obterPeriodo(dataInicial, dataFinal).then((value: any) => {
       this.dataSource = new MatTableDataSource(value.data);
       this.dataSource.paginator = this.paginator;

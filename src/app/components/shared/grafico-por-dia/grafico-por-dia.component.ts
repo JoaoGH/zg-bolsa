@@ -56,14 +56,14 @@ export class GraficoPorDiaComponent implements OnInit {
       this.renderer.setStyle(d, 'display', 'none');
 
       for (let i = 0; i < value.data.acoes.length; i++) {
-        let acao = value.data.acoes[i];
-        let mercado = value.data.mercado[i];
+        const acao = value.data.acoes[i];
+        const mercado = value.data.mercado[i];
 
-        let objAcao = {
+        const objAcao = {
           label: acao.simbol,
           y: acao.preco
         }
-        let objExtra = {
+        const objExtra = {
           label: acao.simbol,
           y: 0
         }
