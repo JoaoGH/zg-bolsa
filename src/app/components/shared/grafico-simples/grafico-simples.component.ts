@@ -46,7 +46,8 @@ export class GraficoSimplesComponent implements OnInit {
   resumo: Resumo = {
     precoMercado: '',
     precoOperacao: '',
-    rendimento: '',
+    rendimentoCompra: '',
+    rendimentoVenda: '',
     quantidade: 0,
     acao: '',
     saldo: '',
@@ -72,12 +73,18 @@ export class GraficoSimplesComponent implements OnInit {
         isLong = true;
       }
 
-      const operacao = {
-        label: isLong ? 'Compra' : 'Venda',
-        y: userTrade.preco
+      const compra = {
+        label: 'Compra',
+        y: isLong ? userTrade.preco : 0
       }
 
-      this.dataPoints.push(operacao);
+      const venda = {
+        label: 'Venda',
+        y: !isLong ? userTrade.preco : 0
+      }
+
+      this.dataPoints.push(compra);
+      this.dataPoints.push(venda);
 
       const mercado = {
         label: 'Preço de Mercado',
@@ -88,7 +95,8 @@ export class GraficoSimplesComponent implements OnInit {
 
       this.resumo.precoMercado = parseFloat(mercadoTrade.preco).toFixed(2);
       this.resumo.precoOperacao = parseFloat(userTrade.preco).toFixed(2);
-      this.resumo.rendimento = parseFloat(userTrade.rendimento).toFixed(2);
+      this.resumo.rendimentoCompra = parseFloat(value.data.rendimentoCompra).toFixed(2);
+      this.resumo.rendimentoVenda = parseFloat(value.data.rendimentoVenda).toFixed(2);
       this.resumo.quantidade = userTrade.quantidade;
       this.resumo.acao = mercadoTrade.simbol
       this.resumo.saldo = parseFloat(userTrade.saldo).toFixed(2);
@@ -101,9 +109,13 @@ export class GraficoSimplesComponent implements OnInit {
           includeZero: true,
           prefix: "R$ "
         },
+        toolTip: {
+          shared: true
+        },
         data: [{
           type: "column",
-          yValueFormatString: "R$ #,###.00",
+          name: `Preço de ${this.data.acao}`,
+          yValueFormatString: "R$ #,##0.00",
           dataPoints: this.dataPoints
         }]
       };

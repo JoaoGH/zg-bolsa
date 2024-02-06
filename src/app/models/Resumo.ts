@@ -2,7 +2,8 @@
 export interface Resumo {
   precoMercado: string,
   precoOperacao: string,
-  rendimento: string,
+  rendimentoCompra: string,
+  rendimentoVenda: string,
   quantidade: number,
   acao: string,
   saldo: string
