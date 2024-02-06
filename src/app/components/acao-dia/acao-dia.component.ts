@@ -5,11 +5,10 @@ import {MatIcon} from "@angular/material/icon";
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-//
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Acao} from "../../models/Acao";
 import {AcaoService} from "../../services/acao.service";
-import {MatDatepickerInputEvent, MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
 import * as _moment from 'moment';
 import {default as _rollupMoment} from 'moment';
@@ -18,8 +17,6 @@ import {GraficoSimplesComponent} from "../shared/grafico-simples/grafico-simples
 
 const moment = _rollupMoment || _moment;
 
-// See the Moment.js docs for the meaning of these formats:
-// https://momentjs.com/docs/#/displaying/format/
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
