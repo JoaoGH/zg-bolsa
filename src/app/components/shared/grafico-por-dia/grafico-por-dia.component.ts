@@ -30,6 +30,8 @@ export class GraficoPorDiaComponent implements OnInit {
     rendimentoCompra: '',
     rendimentoVenda: '',
     quantidade: 0,
+    totalAcoesCompradas: 0,
+    totalAcoesVendidas: 0,
     acao: '',
     saldo: '',
   };
@@ -52,8 +54,6 @@ export class GraficoPorDiaComponent implements OnInit {
 
       const d = document.getElementById('aviso');
       this.renderer.setStyle(d, 'display', 'none');
-
-      debugger
 
       for (let i = 0; i < value.data.acoes.length; i++) {
         let acao = value.data.acoes[i];
@@ -128,6 +128,8 @@ export class GraficoPorDiaComponent implements OnInit {
 
       this.resumo.rendimentoCompra = parseFloat(value.data.rendimentoCompra).toFixed(2);
       this.resumo.rendimentoVenda = parseFloat(value.data.rendimentoVenda).toFixed(2);
+      this.resumo.totalAcoesCompradas = value.data.totalAcoesCompradas;
+      this.resumo.totalAcoesVendidas = value.data.totalAcoesVendidas;
       this.resumo.quantidade = value.data.qtdAcoes;
       this.resumo.saldo = parseFloat(value.data.saldoTotal).toFixed(2);
     });

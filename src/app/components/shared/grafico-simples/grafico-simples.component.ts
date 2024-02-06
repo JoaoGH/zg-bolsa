@@ -49,6 +49,8 @@ export class GraficoSimplesComponent implements OnInit {
     rendimentoCompra: '',
     rendimentoVenda: '',
     quantidade: 0,
+    totalAcoesCompradas: 0,
+    totalAcoesVendidas: 0,
     acao: '',
     saldo: '',
   };
@@ -97,6 +99,8 @@ export class GraficoSimplesComponent implements OnInit {
       this.resumo.precoOperacao = parseFloat(userTrade.preco).toFixed(2);
       this.resumo.rendimentoCompra = parseFloat(value.data.rendimentoCompra).toFixed(2);
       this.resumo.rendimentoVenda = parseFloat(value.data.rendimentoVenda).toFixed(2);
+      this.resumo.totalAcoesCompradas = value.data.totalAcoesCompradas;
+      this.resumo.totalAcoesVendidas = value.data.totalAcoesVendidas;
       this.resumo.quantidade = userTrade.quantidade;
       this.resumo.acao = mercadoTrade.simbol
       this.resumo.saldo = parseFloat(userTrade.saldo).toFixed(2);

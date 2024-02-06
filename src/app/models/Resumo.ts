@@ -5,6 +5,8 @@ export interface Resumo {
   rendimentoCompra: string,
   rendimentoVenda: string,
   quantidade: number,
+  totalAcoesCompradas: number,
+  totalAcoesVendidas: number,
   acao: string,
   saldo: string
 }
