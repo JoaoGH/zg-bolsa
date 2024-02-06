@@ -56,6 +56,15 @@
           <td mat-cell *matCellDef="let row">{{row.rendimento.toFixed(2)}} %</td>
         </ng-container>
 
+        <ng-container matColumnDef="grafico">
+          <th mat-header-cell *matHeaderCellDef>Gráfico</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="verGrafico(row)">
+              <mat-icon>bar_chart</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 

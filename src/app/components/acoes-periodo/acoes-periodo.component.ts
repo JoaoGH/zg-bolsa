@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatIconButton} from "@angular/material/button";
 import {
   MatDatepicker,
   MatDatepickerInput, MatDatepickerModule,
@@ -20,6 +20,8 @@ import {UserTrade} from "../../models/UserTrade";
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatIcon} from "@angular/material/icon";
+import {GraficoSimplesComponent} from "../shared/grafico-simples/grafico-simples.component";
 
 const moment = _rollupMoment || _moment;
 export const MY_FORMATS = {
@@ -58,7 +60,9 @@ export const MY_FORMATS = {
     MatDatepickerModule,
     FormsModule,
     JsonPipe,
-    NgClass
+    NgClass,
+    MatIconButton,
+    MatIcon
   ],
   providers: [
     provideMomentDateAdapter(MY_FORMATS),
@@ -69,7 +73,7 @@ export const MY_FORMATS = {
 export class AcoesPeriodoComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['simbol', 'data', 'operacao', 'rendimento'];
+  displayedColumns: string[] = ['simbol', 'data', 'operacao', 'rendimento', 'grafico']
   dataSource!: MatTableDataSource<UserTrade>;
   isActiveNOofCasesNo: boolean = false;
 
@@ -101,6 +105,12 @@ export class AcoesPeriodoComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  verGrafico(element: UserTrade): void {
+    this.dialog.open(GraficoSimplesComponent, {
+      data: { acao: element.simbol, data: moment(element.data, 'YYYY-MM-DD').format('DD/MM/yyyy') },
+    });
   }
 
   protected readonly moment = moment;
