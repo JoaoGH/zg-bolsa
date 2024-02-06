@@ -82,21 +82,6 @@ export class GraficoPorDiaComponent implements OnInit {
         });
       }
 
-      // for (let it of value.data.acoes) {
-      //   let obj = {
-      //     label: it.simbol,
-      //     y: it.preco
-      //   }
-      //   if (it.operacao === 'C') {
-      //     this.listCompra.push(obj);
-      //   } else {
-      //     this.listVenda.push(obj);
-      //   }
-      // }
-      //
-      // for (let it of value.data.mercado) {
-      // }
-
       this.chartOptions = {
         animationEnabled: true,
         title:{
