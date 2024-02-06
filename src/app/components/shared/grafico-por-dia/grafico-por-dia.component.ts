@@ -43,12 +43,12 @@ export class GraficoPorDiaComponent implements OnInit {
 
   ngOnInit(): void {
     this.acaoService.obterAcoesPorDia(this.data.data).then((value: any) => {
-      // if (!value.success) {
-      //   this.notFound = this.acaoService.messages.notFoundInDate.replace('{0}', this.data.data);
-      //   const d = document.getElementById('dados');
-      //   this.renderer.setStyle(d, 'display', 'none');
-      //   return;
-      // }
+      if (!value.success) {
+        this.notFound = this.acaoService.messages.notFoundInDate.replace('{0}', this.data.data);
+        const d = document.getElementById('dados');
+        this.renderer.setStyle(d, 'display', 'none');
+        return;
+      }
 
       const d = document.getElementById('aviso');
       this.renderer.setStyle(d, 'display', 'none');
