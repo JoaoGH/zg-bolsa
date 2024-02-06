@@ -16,9 +16,14 @@ export class AcaoService {
     notFoundInDate: 'Não foi encontrado nenhum registro na data de {0}.',
     notFoundInDateAndCode: 'Não foi encontrado nenhum registro para {0} na data de {1}.',
   }
+  public apiKey: string = 'e712ca24-604f-467a-94ec-0d2bb0f6f153';
 
   async obterAcoes(): Promise<Acao[]> {
-    const data = await fetch(`${this.apiUrl}/v1/carteira/listAllSimbols`);
+    const data = await fetch(`${this.apiUrl}/v1/carteira/listAllSimbols`, {
+      headers: {
+        'api-key': this.apiKey
+      }
+    });
     const value = await data.json() ?? {};
     let content: Acao[] = [];
 
@@ -35,7 +40,11 @@ export class AcaoService {
     const dados = await fetch(`${this.apiUrl}/v1/carteira?` + new URLSearchParams({
       data: moment(data, 'DD/MM/YYYY').format('YYYY-MM-DD'),
       acao: simbol.toUpperCase()
-    }));
+    }), {
+      headers: {
+        'api-key': this.apiKey
+      }
+    });
     const value = await dados.json() ?? {};
 
     return value;
@@ -44,7 +53,11 @@ export class AcaoService {
   async obterAcoesPorDia(data: string): Promise<any> {
     const dados = await fetch(`${this.apiUrl}/v1/carteira/rendimentosPorData?` + new URLSearchParams({
       data: moment(data, 'DD/MM/YYYY').format('YYYY-MM-DD'),
-    }));
+    }), {
+      headers: {
+        'api-key': this.apiKey
+      }
+    });
     const value = await dados.json() ?? {};
 
     return value
@@ -54,7 +67,11 @@ export class AcaoService {
     const data = await fetch(`${this.apiUrl}/v1/carteira/listPeriodo?`+ new URLSearchParams({
       dataInicial: moment(dataInicial, 'DD/MM/YYYY').format('YYYY-MM-DD'),
       dataFinal: moment(dataFinal, 'DD/MM/YYYY').format('YYYY-MM-DD'),
-    }));
+    }), {
+      headers: {
+        'api-key': this.apiKey
+      }
+    });
 
     return await data.json() ?? {};
   }
